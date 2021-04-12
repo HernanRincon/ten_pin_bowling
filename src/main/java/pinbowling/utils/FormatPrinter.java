@@ -22,24 +22,17 @@ public class FormatPrinter {
 		StringBuilder response = new StringBuilder();
 		response.append(frame);
 		response.append("\n");
-//		System.out.println("prueba:"+frame);
 		mapFrames.keySet().stream().forEach(name -> {
 			String [] pinFallsArray= mapFrames.get(name).stream().map(map -> normalizePinFalls(map.getPointsPerBall(),map.getFrameId())).toArray(String[]::new);
 			String [] scoreArray= mapFrames.get(name).stream().map(map -> String.valueOf(map.getFinalScore())).toArray(String[]::new);
 			
-//			System.out.println("prueba:"+name);
 			response.append(name);
 			response.append("\n");
-//			System.out.println("prueba:"+String.format(pinFalls, pinFallsArray));
 			response.append(String.format(pinFalls, pinFallsArray));
 			response.append("\n");
-//			System.out.println("prueba:"+String.format(score, scoreArray));
 			response.append(String.format(score, scoreArray));
 			response.append("\n");
 		});
-		
-		
-//		System.out.println("prueba:"+String.format(pinFalls, framesId));
 		return response.toString();
 	}
 	

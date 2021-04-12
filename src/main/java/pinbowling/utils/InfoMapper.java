@@ -18,7 +18,7 @@ import pinbowling.model.PlayerThrows;
 
 public class InfoMapper {
 
-	public static Map<String, List<PlayerThrows>> playersInfo(String filePath)
+	public Map<String, List<PlayerThrows>> playersInfo(String filePath)
 			throws IOException, NumberFormatException {
 		Map<String, List<PlayerThrows>> players = new HashMap<String, List<PlayerThrows>>();
 		// read file into stream, try-with-resources
@@ -30,7 +30,7 @@ public class InfoMapper {
 		return players;
 	}
 
-	private static PlayerThrows mapLineToPlayerThrow(String line, Integer id) throws NumberFormatException {
+	private PlayerThrows mapLineToPlayerThrow(String line, Integer id) throws NumberFormatException {
 		String[] values = line.split(" ");
 
 		PlayerThrows newPlayer = PlayerThrows.builder()

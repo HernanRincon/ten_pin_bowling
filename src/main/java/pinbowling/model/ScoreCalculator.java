@@ -10,7 +10,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 public class ScoreCalculator {
 	
-	public static Map<String,List<Frame>> calculateScore(Map<String,List<Frame>> framesByPlayers){
+	public Map<String,List<Frame>> calculateScore(Map<String,List<Frame>> framesByPlayers){
 		System.out.println("");
 		framesByPlayers.keySet().parallelStream().forEach(name ->{
 			List<Frame> frames=framesByPlayers.get(name);
@@ -45,7 +45,7 @@ public class ScoreCalculator {
 		return framesByPlayers;
 	}
 	
-	private static Stream<Integer> streamList(List<Frame> frames, int index) {
+	private Stream<Integer> streamList(List<Frame> frames, int index) {
 		return frames.get(index).getPointsPerBall().stream().map(num  -> NumberUtils.isCreatable(num)?Integer.parseInt(num):0);
 	}
 
