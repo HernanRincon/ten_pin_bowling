@@ -46,4 +46,5 @@ public class InfoMapper {
 		return newPlayer;
 
 	}
+	
 }

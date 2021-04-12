@@ -19,7 +19,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Frame {
-	private Integer frameId;
+	private int frameId;
 	private List<String> pointsPerBall;
 	private Integer finalScore;
 	private PlayerInfo player;
@@ -50,6 +50,9 @@ public class Frame {
 							.collect(Collectors.toList()).subList(indexThrow, pThrows.size());
 					frame.setPointsPerBall(poinst);
 					indexThrow = indexThrow + pThrows.size();
+					if(poinst.stream().allMatch(m-> m.equals(BowlingRules.STRIKE.getRule()))) {
+						frame.setStrike(true);
+					}
 				}else {
 					if (playerThrows.isValid() && playerThrows.getFallenPines().equals(BowlingRules.STRIKE.getRule())) {
 						List<String> poinst = pThrows.stream().map(value -> value.getFallenPines())
@@ -65,9 +68,9 @@ public class Frame {
 					}
 				}
 				
-
 				frames.add(frame);
 			}
+//			frames.forEach(System.out::println);
 			game.put(name, frames);
 		});
 
