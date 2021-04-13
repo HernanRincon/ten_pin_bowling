@@ -10,6 +10,6 @@ You need to have pre installed:
 
 ## Run command line app.
 Steps:
-1- You need to execute this command mvn clean install in root project folder
-2- run this command java -jar ten_pin_bowling-0.0.1-SNAPSHOT.jar into target folder
-3- you can use this string to execute a file example {root project folder}/src/main/java/resources/Data_Game.txt
+* You need to execute this command mvn clean install in root project folder \n
+* run this command java -jar ten_pin_bowling-0.0.1-SNAPSHOT.jar into target folder
+* you can use this string to execute a file example {root project folder}/src/main/java/resources/Data_Game.txt
