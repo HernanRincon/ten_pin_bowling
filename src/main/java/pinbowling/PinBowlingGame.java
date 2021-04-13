@@ -1,6 +1,7 @@
 package pinbowling;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -27,7 +28,6 @@ public class PinBowlingGame {
 		frame=Frame.builder().build();
 	}
 
-	// "/home/hernan/projects/proyectos_github/ten_pin_bowling/src/main/java/resources/Data_Game.txt"
 	public static void main(String[] args) {
 		try (Scanner ins = new Scanner(System.in)) {
 			String path = "";
@@ -54,6 +54,8 @@ public class PinBowlingGame {
 			logger.log(Level.INFO, BowlingRules.FILE_ERROR.getDescription());
 		} catch (IOException e) {
 			logger.log(Level.INFO, BowlingRules.INVALID_PINES_VALUE.getDescription());
+		}catch (IndexOutOfBoundsException e) {
+			logger.log(Level.INFO,"The number of frames are oversized for any player");
 		}
 		return "";
 
