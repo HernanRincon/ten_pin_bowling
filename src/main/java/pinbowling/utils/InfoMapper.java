@@ -13,9 +13,14 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import pinbowling.model.PlayerInfo;
 import pinbowling.model.PlayerThrows;
 
+
+@Builder
+@NoArgsConstructor
 public class InfoMapper {
 
 	public Map<String, List<PlayerThrows>> playersInfo(String filePath)

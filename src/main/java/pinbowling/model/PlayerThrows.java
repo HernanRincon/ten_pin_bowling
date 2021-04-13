@@ -1,7 +1,5 @@
 package pinbowling.model;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +15,6 @@ public class PlayerThrows {
 	private String fallenPines ;
 	private boolean isValid;
 	
-	public static void validateShots(List<PlayerThrows> playerGame) {
-		
-	}
 	
 	public String getPlayerName() {
 		return player.getPlayerName();

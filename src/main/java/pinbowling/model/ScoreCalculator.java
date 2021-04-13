@@ -7,11 +7,15 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
+
+@Builder
+@NoArgsConstructor
 public class ScoreCalculator {
 	
 	public Map<String,List<Frame>> calculateScore(Map<String,List<Frame>> framesByPlayers){
-		System.out.println("");
 		framesByPlayers.keySet().parallelStream().forEach(name ->{
 			List<Frame> frames=framesByPlayers.get(name);
 			frames.forEach(frame -> {
@@ -38,8 +42,6 @@ public class ScoreCalculator {
 					frame.setFinalScore(score);
 				}
 			});
-//			frames.forEach(System.out::println);
-			
 		});
 		
 		return framesByPlayers;

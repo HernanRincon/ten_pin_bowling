@@ -25,9 +25,6 @@ public class Frame {
 	private PlayerInfo player;
 	private boolean isStrike;
 
-	public static void validateGame(List<PlayerThrows> gamePerPlayer) {
-	}
-
 	/**
 	 * This method map the throws per player to frames 
 	 * @param players
@@ -35,7 +32,7 @@ public class Frame {
 	 * @throws IOException
 	 * @throws NumberFormatException
 	 */
-	public static Map<String, List<Frame>> gameMapperToFrames(Map<String, List<PlayerThrows>> players)
+	public  Map<String, List<Frame>> gameMapperToFrames(Map<String, List<PlayerThrows>> players)
 			throws IOException, NumberFormatException {
 		Map<String, List<Frame>> game = new HashMap<String, List<Frame>>();
 		players.keySet().parallelStream().forEach(name -> {

@@ -18,12 +18,21 @@ public class PinBowlingGame {
 	private static final Logger logger = Logger.getLogger(PinBowlingGame.class.getName());
 	private InfoMapper infoMapper;
 	private ScoreCalculator calculator;
+	private Frame frame;
+	
+	
+	public PinBowlingGame(){
+		infoMapper =InfoMapper.builder().build();
+		calculator=ScoreCalculator.builder().build();
+		frame=Frame.builder().build();
+	}
 
 	// "/home/hernan/projects/proyectos_github/ten_pin_bowling/src/main/java/resources/Data_Game.txt"
 	public static void main(String[] args) {
 		try (Scanner ins = new Scanner(System.in)) {
 			String path = "";
 			while (path.equals("")) {
+				System.out.println("You can find a example files in resources folder into src/main/java/resources");
 				System.out.print("Enter file path of the players Scores: ");
 				path = ins.next();
 				String response = new PinBowlingGame().formatGameScore(path);
@@ -36,11 +45,9 @@ public class PinBowlingGame {
 
 	public String formatGameScore(String path) {
 		try (Scanner ins = new Scanner(System.in)) {
-			infoMapper = new InfoMapper();
-			calculator = new ScoreCalculator();
 			
 			Map<String, List<PlayerThrows>> players = infoMapper.playersInfo(path);
-			Map<String, List<Frame>> mapFrames = Frame.gameMapperToFrames(players);
+			Map<String, List<Frame>> mapFrames = frame.gameMapperToFrames(players);
 			mapFrames = calculator.calculateScore(mapFrames);
 			return new FormatPrinter().formatScore(mapFrames);
 		} catch (NumberFormatException e) {
