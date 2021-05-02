@@ -21,14 +21,13 @@ public class FormatPrinter {
 	private static final String SCORE="Score\t\t%-6s%-6s%-6s%-6s%-6s%-6s%-6s%-6s%-6s%-6s";
 	private static final String STANDAR_SPACES="%-3s";
 	
-	@SuppressWarnings("all")
 	public String formatScore(Map<String, List<Frame>> mapFrames) {
 		StringBuilder response = new StringBuilder();
 		response.append(FRAME);
 		response.append("\n");
 		mapFrames.keySet().stream().forEach(name -> {
-			String [] pinFallsArray= mapFrames.get(name).stream().map(map -> normalizePinFalls(map.getPointsPerBall(),map.getFrameId())).toArray(String[]::new);
-			String [] scoreArray= mapFrames.get(name).stream().map(map -> String.valueOf(map.getFinalScore())).toArray(String[]::new);
+			Object [] pinFallsArray= mapFrames.get(name).stream().map(map -> normalizePinFalls(map.getPointsPerBall(),map.getFrameId())).toArray(String[]::new);
+			Object [] scoreArray= mapFrames.get(name).stream().map(map -> String.valueOf(map.getFinalScore())).toArray(String[]::new);
 			
 			response.append(name);
 			response.append("\n");

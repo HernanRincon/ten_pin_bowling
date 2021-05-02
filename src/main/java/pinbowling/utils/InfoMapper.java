@@ -25,7 +25,7 @@ public class InfoMapper {
 
 	public Map<String, List<PlayerThrows>> playersInfo(String filePath)
 			throws IOException, NumberFormatException {
-		Map<String, List<PlayerThrows>> players = new HashMap<String, List<PlayerThrows>>();
+		Map<String, List<PlayerThrows>> players = new HashMap<>();
 		// read file into stream, try-with-resources
 		try (Stream<String> stream = Files.lines(Paths.get(filePath))) {
 			List<String> lines = stream.collect(Collectors.toList());
